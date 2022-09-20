@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Semana05EFCoreSales.DOMAIN.Core.Entities;
+using Semana05EFCoreSales.DOMAIN.Core.Interfaces;
 using Semana05EFCoreSales.DOMAIN.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly SalesUESANContext _context;
 
@@ -18,7 +14,7 @@ namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Customer>> GetCustomers() 
+        public async Task<IEnumerable<Customer>> GetCustomers()
         {
             var customers = await _context.Customer.ToListAsync();
             return customers;
