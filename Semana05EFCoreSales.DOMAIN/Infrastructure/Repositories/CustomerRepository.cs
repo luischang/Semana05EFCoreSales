@@ -23,9 +23,8 @@ namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories
         public async Task<Customer> GetCustomerById(int id)
         {
             var customer = await _context.Customer.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if (customer == null)
-                throw new Exception("Customer not found");
-
+            //if (customer == null)
+            //    throw new Exception("Customer not found");
             return customer;
         }
 
