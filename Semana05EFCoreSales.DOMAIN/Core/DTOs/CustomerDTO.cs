@@ -48,4 +48,13 @@ namespace Semana05EFCoreSales.DOMAIN.Core.DTOs
         public string? Country { get; set; }
         public string? Phone { get; set; }
     }
+
+    public class CustomerOrder 
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public IEnumerable<OrderNumberAmountDTO> Orders { get; set; }
+
+    }
 }

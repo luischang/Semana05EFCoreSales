@@ -53,5 +53,11 @@ namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories
             return countRows > 0;
         }
 
+        public async Task<IEnumerable<Customer>> GetCustomersWithOrders()
+        {
+            var customers = await _context.Customer.Include(x=>x.Order).ToListAsync();
+            return customers;
+        }
+
     }
 }
