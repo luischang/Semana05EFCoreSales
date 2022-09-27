@@ -1,6 +1,8 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Semana05EFCoreSales.DOMAIN.Core.Interfaces;
 using Semana05EFCoreSales.DOMAIN.Infrastructure.Data;
+using Semana05EFCoreSales.DOMAIN.Infrastructure.Mapping;
 using Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,14 @@ builder
 
 //Add services to the container
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+//Add Automapper
+var config = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new AutomapperProfile());
+});
+var mapper = config.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 
