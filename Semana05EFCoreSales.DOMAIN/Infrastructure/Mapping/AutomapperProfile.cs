@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Mapping
 {
-    public class AutomapperProfile: Profile
+    public class AutomapperProfile : Profile
     {
 
         public AutomapperProfile()
@@ -20,6 +20,12 @@ namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Mapping
             CreateMap<CustomerCountryDTO, Customer>();
             CreateMap<CustomerCreateDTO, Customer>();
             CreateMap<Customer, CustomerCreateDTO>();
+
+            CreateMap<Customer, CustomerOrderDTO>();
+            CreateMap<CustomerOrderDTO, Customer>();
+
+            CreateMap<Order, OrderNumberAmountDTO>();
+            CreateMap<OrderNumberAmountDTO, Order>();
         }
     }
 }

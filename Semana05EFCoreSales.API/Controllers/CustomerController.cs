@@ -100,5 +100,16 @@ namespace Semana05EFCoreSales.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetCustomerOrdersByCustomerId/{id}")]
+        public async Task<IActionResult> GetCustomerOrdersByCustomerId(int id)
+        {
+            var customer = await _customerRepository.GetCustomersWithOrders(id);
+            if (customer == null)
+                return NotFound();
+
+            var customerDTO = _mapper.Map<CustomerOrderDTO>(customer);
+            return Ok(customerDTO);
+        }
+
     }
 }

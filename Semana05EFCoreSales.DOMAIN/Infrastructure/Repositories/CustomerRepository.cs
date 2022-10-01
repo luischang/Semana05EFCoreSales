@@ -53,9 +53,9 @@ namespace Semana05EFCoreSales.DOMAIN.Infrastructure.Repositories
             return countRows > 0;
         }
 
-        public async Task<IEnumerable<Customer>> GetCustomersWithOrders()
+        public async Task<Customer> GetCustomersWithOrders(int id)
         {
-            var customers = await _context.Customer.Include(x=>x.Order).ToListAsync();
+            var customers = await _context.Customer.Include(x => x.Order).Where(x => x.Id == id).FirstOrDefaultAsync();
             return customers;
         }
 

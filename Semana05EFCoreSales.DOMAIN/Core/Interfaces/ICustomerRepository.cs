@@ -9,7 +9,8 @@ namespace Semana05EFCoreSales.DOMAIN.Core.Interfaces
         Task<IEnumerable<Customer>> GetCustomers();
         Task<bool> Insert(Customer customer);
         Task<bool> Update(Customer customer);
-        Task<IEnumerable<Customer>> GetCustomersWithOrders();
+        Task<Customer> GetCustomersWithOrders(int id);
+
 
     }
 }
