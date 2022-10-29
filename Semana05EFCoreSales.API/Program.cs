@@ -23,6 +23,7 @@ builder
 
 //Add services to the container
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddTransient<IUsersRepository, UsersRepository>();
 
 //Add Automapper
 var config = new MapperConfiguration(cfg =>
