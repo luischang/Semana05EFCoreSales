@@ -23,4 +23,10 @@ namespace Semana05EFCoreSales.DOMAIN.Core.DTOs
         public string FullName { get; set; }
         public string RoleCode { get; set; }
     }
+
+    public class UsersAuthenticationDTO
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
 }

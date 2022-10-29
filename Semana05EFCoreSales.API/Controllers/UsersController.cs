@@ -20,9 +20,9 @@ namespace Semana05EFCoreSales.API.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login([FromBody] UsersAuthenticationDTO userAuth)
         {
-            var user = await _usersRepository.Login(email, password);
+            var user = await _usersRepository.Login(userAuth.Email, userAuth.Password);
             if (user==null)
                 return NotFound();
             var userDTO = _mapper.Map<UsersLoginDTO>(user);
